@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo/mainPage/MainPage.dart';
 
+import 'mainPage/MainPageHeader.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: "Pretendard",
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellowAccent),
         useMaterial3: true,
       ),
       home: const App(title: 'Flutter Demo Home Page'),
@@ -34,7 +37,14 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: MainPage(),
+      body: Column(
+            children: [
+              MainPageHeader(),
+              Expanded(
+                child: MainPage(),
+              )
+            ],
+          )
     );
   }
 }
